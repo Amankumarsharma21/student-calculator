@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Tools | Free Calculators for Students</title>
+
+  <meta name="description" content="Student Tools provides free online calculators like CGPA calculator, attendance calculator and percentage calculator for college and school students.">
+
+  <!-- ADD GOOGLE ADSENSE CODE HERE AFTER APPROVAL -->
+  <!--
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXX"
+  crossorigin="anonymous"></script>
+  -->
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      background: #f4f6f8;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: #0d6efd;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav a {
+      color: white;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      max-width: 900px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    h2 {
+      color: #0d6efd;
+    }
+    input, button {
+      width: 100%;
+      padding: 8px;
+      margin: 6px 0;
+    }
+    button {
+      background: #0d6efd;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .result {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      margin-top: 30px;
+    }
+    footer a {
+      color: #0d6efd;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Student Tools</h1>
+  <p>Free academic calculators designed for students</p>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#cgpa">CGPA</a>
+    <a href="#attendance">Attendance</a>
+    <a href="#percentage">Percentage</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section id="about">
+  <h2>About Student Tools</h2>
+  <p>
+    Student Tools is a free online platform created to help students calculate important academic values quickly and accurately.
+    Many students struggle with manual calculations related to CGPA, attendance percentage, and exam scores.
+    This website solves that problem by offering simple calculators that work instantly on any device.
+  </p>
+  <p>
+    The main goal of Student Tools is to save time and reduce confusion. Instead of using formulas manually or
+    relying on complex spreadsheets, students can enter their values and get results within seconds.
+    The tools are designed with simplicity in mind so that even first-year students can use them without difficulty.
+  </p>
+  <p>
+    This website is maintained by a college student who understands the real problems faced by students in daily academic life.
+    Whether it is checking attendance eligibility or calculating CGPA before results, Student Tools aims to be a reliable companion.
+  </p>
+</section>
+
+<section id="cgpa">
+  <h2>CGPA Calculator</h2>
+  <p>
+    CGPA stands for Cumulative Grade Point Average and is one of the most important academic indicators for students.
+    It reflects overall performance across semesters and is often used during internships, placements, and higher studies.
+  </p>
+  <p>
+    This CGPA calculator helps you calculate your CGPA using the total grade points earned and the total number of credits.
+    The formula used is simple: CGPA = Total Grade Points ÷ Total Credits.
+  </p>
+  <p>
+    For example, if your total grade points are 720 and total credits are 80, then your CGPA will be 9.00.
+    This calculator eliminates manual errors and provides accurate results instantly.
+  </p>
+
+  <input type="number" id="points" placeholder="Enter total grade points">
+  <input type="number" id="credits" placeholder="Enter total credits">
+  <button onclick="calcCGPA()">Calculate CGPA</button>
+
+  <div class="result" id="cgpaResult"></div>
+</section>
+
+<section id="attendance">
+  <h2>Attendance Calculator</h2>
+  <p>
+    Attendance is a crucial requirement in most colleges and universities. Many institutions require a minimum
+    attendance percentage to allow students to appear for examinations.
+  </p>
+  <p>
+    This attendance calculator helps you calculate your attendance percentage by dividing the number of classes attended
+    by the total number of classes conducted.
+  </p>
+  <p>
+    Knowing your attendance early allows you to plan better and avoid shortages.
+    This tool is especially useful before exams or internal assessments.
+  </p>
+
+  <input type="number" id="present" placeholder="Classes attended">
+  <input type="number" id="total" placeholder="Total classes conducted">
+  <button onclick="calcAttendance()">Calculate Attendance</button>
+
+  <div class="result" id="attResult"></div>
+</section>
+
+<section id="percentage">
+  <h2>Percentage Calculator</h2>
+  <p>
+    Percentage calculation is commonly required during exams, assignments, and result analysis.
+    This calculator helps you calculate percentage easily based on marks obtained and maximum marks.
+  </p>
+  <p>
+    The formula used is: (Marks Obtained ÷ Maximum Marks) × 100.
+    The result helps students understand their performance clearly.
+  </p>
+  <p>
+    This calculator is useful for school students, college students, and anyone who needs quick percentage calculations.
+  </p>
+
+  <input type="number" id="marks" placeholder="Marks obtained">
+  <input type="number" id="maxmarks" placeholder="Maximum marks">
+  <button onclick="calcPercentage()">Calculate Percentage</button>
+
+  <div class="result" id="perResult"></div>
+</section>
+
+<footer>
+  <p>© 2025 Student Tools</p>
+  <p>
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+
+<script>
+function calcCGPA() {
+  let p = document.getElementById("points").value;
+  let c = document.getElementById("credits").value;
+  if (p > 0 && c > 0) {
+    document.getElementById("cgpaResult").innerText =
+      "Your CGPA is " + (p / c).toFixed(2);
+  } else {
+    document.getElementById("cgpaResult").innerText =
+      "Please enter valid values";
+  }
+}
+
+function calcAttendance() {
+  let p = document.getElementById("present").value;
+  let t = document.getElementById("total").value;
+  if (p >= 0 && t > 0) {
+    document.getElementById("attResult").innerText =
+      "Your attendance is " + ((p / t) * 100).toFixed(2) + "%";
+  } else {
+    document.getElementById("attResult").innerText =
+      "Please enter valid values";
+  }
+}
+
+function calcPercentage() {
+  let m = document.getElementById("marks").value;
+  let mm = document.getElementById("maxmarks").value;
+  if (m >= 0 && mm > 0) {
+    document.getElementById("perResult").innerText =
+      "Your percentage is " + ((m / mm) * 100).toFixed(2) + "%";
+  } else {
+    document.getElementById("perResult").innerText =
+      "Please enter valid values";
+  }
+}
+</script>
+
+</body>
+</html>
